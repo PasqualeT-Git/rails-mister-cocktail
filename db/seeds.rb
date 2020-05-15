@@ -6,13 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# url = "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
+url = "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
 
-# open_file = open(url).read
-# ingredients = JSON.parse(open_file)
+open_file = open(url).read
+ingredients = JSON.parse(open_file)
 
-# ingredients.each do |ingredient|
-#   ingredient[1].each do |ing|
-#     Ingredient.create(name: ing["strIngredient1"] )
-#   end
-# end
+ingredients.each do |ingredient|
+  ingredient[1].each do |ing|
+    Ingredient.create(name: ing["strIngredient1"] )
+  end
+end
