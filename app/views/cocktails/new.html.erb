@@ -1,5 +1,19 @@
-<%= simple_form_for @cocktail do |f| %>
-  <%= f.input :name %>
-  <%= f.submit "Submit" %>
-  <%= f.input :photo, as: :file %>
-<% end %>
+<div class="d-flex justify-content-between" id="backgr-form">
+  <div class="container d-flex flex-column align-items-center justify-content-center">
+    <div class="container card col-6 shadow d-flex flex-column justify-content-around " id="form">
+      <%= simple_form_for @cocktail do |f| %>
+        <%= f.input :name %>
+        <%= f.input :photo, as: :file, id: "photo-sect" %>
+      <div class="d-flex justify-content-between mt-5">
+        <%= f.submit "Submit", class: "btn btn-primary mt-5", id: "btn-submit" %>
+        <% end %>
+        <%= link_to "Back", root_path, class: "btn btn-primary shadow mt-5", id: "btn-back" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="back-img">
+    <%= cl_image_tag("bartender", crop: :fill, id: "back-img") %>
+  </div>
+</div>
+

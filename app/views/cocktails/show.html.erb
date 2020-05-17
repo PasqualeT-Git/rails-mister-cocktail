@@ -1,13 +1,58 @@
-<h1><%= @cocktail.name %></h1>
 
-<ul>
-  <% @cocktail.doses.each do |dose| %>
-    <li><%= dose.description %> of <%= dose.ingredient.name %></li>
-    <%= link_to "delete", dose_path(dose), method: :delete %>
-  <% end %>
-</ul>
+<div class="d-flex justify-content-between" id="backgr-form">
+  <div class="container d-flex flex-column align-items-center justify-content-center">
+    <div class="card h-100 w-50 mt-3 mb-3 rounded-pill pb-3 justify-content-between shadow text-center d-flex flex-column">
+      <div>
+        <h1 class="mt-5" id=""><%= @cocktail.name %></h1>
+        <ul style="list-style: none; padding: 0" class="mb-0">
+          <% @cocktail.doses.each do |dose| %>
+          <div class="d-flex justify-content-between m-5">
+            <li><%= dose.description %> of <%= dose.ingredient.name %></li>
+            <%= link_to dose_path(dose), method: :delete do %>
+              <i class="far fa-trash-alt" style="color: black;"></i>
+            <% end %>
+          </div>
+          <% end %>
+        </ul>
+      </div>
+      
+      <div class="d-flex flex-column justify-content-between align-items-center">
+        <%= link_to "Add an ingredient", new_cocktail_dose_path(@cocktail), class: "btn btn-primary shadow", id: "btn-add" %>
+        <%= link_to "Back", root_path, class: "btn btn-primary shadow mt-3", id: "btn-back-show" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="back-img">
+    <%= cl_image_tag("bartender_xsfd07", crop: :fill, id: "back-img") %>
+  </div>
+</div>
 
 
 
 
-<%= link_to "add dose", new_cocktail_dose_path(@cocktail)  %>
+<%
+=begin %>
+
+ <div class="d-flex justify-content-between" id="backgr-form">
+  <div class="container d-flex flex-column align-items-center justify-content-center">
+    <div class="container card col-6 shadow d-flex flex-column justify-content-around " id="form">
+      <%= simple_form_for @cocktail do |f| %>
+        <%= f.input :name %>
+        <%= f.input :photo, as: :file, id: "photo-sect" %>
+      <div class="d-flex justify-content-between mt-5">
+        <%= f.submit "Submit", class: "btn btn-primary mt-5", id: "btn-submit" %>
+        <% end %>
+        <%= link_to "Back", root_path, class: "btn btn-primary shadow mt-5", id: "btn-back" %>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="back-img">
+    <%= cl_image_tag("bartender", crop: :fill, id: "back-img") %>
+  </div>
+</div>
+
+<%
+=end %>

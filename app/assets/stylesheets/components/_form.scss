@@ -1,0 +1,57 @@
+#form {
+  padding: 20px;
+  height: 36vh;
+  border-radius: 42px;
+}
+
+#backgr-form {
+  background-color: #ADA4A7;
+}
+
+
+
+#btn-back-show {
+  background-color: #343A40;
+  border: none;
+  width: 20%;
+
+  &:hover {
+    background-color: white;
+    color: #343A40;
+    border: 1px solid #343A40;
+  }
+}
+
+#btn-back {
+  background-color: #343A40;
+  border: none;
+
+  &:hover {
+    background-color: white;
+    color: #343A40;
+    border: 1px solid #343A40;
+  }
+}
+
+#btn-submit {
+  background-color: #343A40;
+  border: none;
+
+  &:hover {
+    background-color: white;
+    color: #343A40;
+    border: 1px solid #343A40;
+  }
+}
+
+#btn-add {
+  background-color: #343A40;
+  border: none;
+  width: 40%;
+
+  &:hover {
+    background-color: white;
+    color: #343A40;
+    border: 1px solid #343A40;
+  }
+}
