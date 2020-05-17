@@ -1,3 +1,4 @@
+  <%# Navbar  %>
   <div class="navbar bg-dark navbar-expand-sm navbar-light navbar-lewagon position-sticky sticky-top">
     <%= link_to "#", class: "navbar-brand" do %>
       <%= image_tag "https://res.cloudinary.com/paky-images/image/upload/v1589582388/drink_k0bgzd.png", style: "width: 32px" %>
@@ -12,7 +13,7 @@
       <ul class="navbar-nav mr-auto" id="navbar-list">
         <li class="nav-item active">
           <%= link_to "Cocktails", "#", class: "nav-link text-white dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" id="navbarDropdownWindow">
             <% @cocktails.each do |cocktail| %>
               <%= link_to cocktail.name, cocktail_path(cocktail), class: "dropdown-item" %>
             <% end %>
@@ -25,23 +26,29 @@
     </div>
   </div>
 
-
+  <%# Banner  %>
 <div id="container" class="position-relative" style="background-image: url(<%= cl_image_path('banner_zys9fz') %>)">
 
-  <ul>
-    <% @cocktails.each do |cocktail| %>
-      <li>
-        <div class="card w-25 shadow-sm">
-          <%= cl_image_tag cocktail.photo.key, height: 300, width: 400, crop: :fit %>
-          <p><%= link_to cocktail.name, cocktail_path(cocktail)%></p>
-        </div>
-      </li>
-    <% end %>
-  </ul>
-
-  <div class="d-flex position-absolute">
-    <%= link_to "Add a new cocktail", new_cocktail_path, class: "btn btn-primary" %><br>
+  <div class="d-flex justify-content-end">
+    <%= cl_image_tag("Mr_Cocktails_1_omvhli")%>
+  </div>
+  
+  <div class="banner-btn d-flex justify-content-center align-items-lg-end">
+    <%= link_to "Add a new cocktail", new_cocktail_path, class: "btn btn-primary", id: "banner-btn" %><br>
   </div>
 </div>
 
+ <%# Cards %>
+<div class="card d-flex flex-row justify-content-around flex-wrap" id="card">
+  <% @cocktails.each do |cocktail| %>
+      <%= link_to cocktail_path(cocktail), class: "text-decoration-none" do %>
+        <div class="card w-75 shadow" id="single-card">
+          <%= cl_image_tag cocktail.photo.key, height: 300, width: 400, crop: :fit, class: "p-1" %>
+          <div>
+            <p><%= cocktail.name %></p>
+          </div>
+        </div>
+      <% end %>
+  <% end %>
+</div>
 
