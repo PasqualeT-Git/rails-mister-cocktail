@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'open-uri'
 
-url = "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
+# url = "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
 
 puts "Creating the ingredient list"
 print"."
@@ -17,14 +17,14 @@ sleep(1)
 print"."
 sleep(1)
 
-open_file = open(url).read
-ingredients = JSON.parse(open_file)
+# open_file = open(url).read
+# ingredients = JSON.parse(open_file)
 
-ingredients.each do |ingredient|
-  ingredient[1].each do |ing|
-    Ingredient.create(name: ing["strIngredient1"] )
-  end
-end
+# ingredients.each do |ingredient|
+#   ingredient[1].each do |ing|
+#     Ingredient.create(name: ing["strIngredient1"] )
+#   end
+# end
 
 puts "Adding some cocktail"
 print"."
